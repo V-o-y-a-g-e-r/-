@@ -109,7 +109,6 @@ unsigned short Operations::net_Layer_Creator(void) {
 
 bool Operations::process(std::vector < std::vector <Neuron> > &NeuralNetwork, Net &net) {
 
-	srand((unsigned int)time(NULL));
 	step = 0;
 	while (step < (partLines.size() - 1)) {
 		std::cout << "Vector of data: " << std::endl;
@@ -333,6 +332,7 @@ bool Operations::testNet(std::vector < std::vector <Neuron> > &NeuralNetwork, Ne
 		if (counter == dataNum) ++good;
 		++i;
 	}
+	std::cout << good << i;
 	std::cout << "Precentage of corretness of the net: " 
 		<< (good/(double)i)*(double)100 << "." << std::endl;
 	return true;

@@ -2,16 +2,21 @@
 
 
 
+std::mt19937 eng(static_cast<unsigned long>(time(nullptr)));
+std::uniform_real_distribution<double> dist(0, 1);
+
+
+
 extern std::queue <double> n_EpochError;
 
 
 
 
-double Neuron::momentum = (double)0.1623423;
+double Neuron::momentum = (double)0.1023423;
 
 
 
-double Neuron::learningRate = (double)0.243342;
+double Neuron::learningRate = (double)0.0643342;
 
 
 
@@ -101,11 +106,10 @@ void Neuron::setOutputValue(double value) {
 
 
 double Neuron::Connections::randomizeConnections() {
-
-	double val = ((double)(rand()) / (double)(RAND_MAX));
-
+	//with srand() it was slighty better
+	//this engine is more random
+	double val = dist(eng);
 	return val;
-
 }
 
 
