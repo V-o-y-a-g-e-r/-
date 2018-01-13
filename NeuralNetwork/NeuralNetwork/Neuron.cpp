@@ -2,7 +2,7 @@
 
 
 
-extern std::vector <double> n_EpochError;
+extern std::queue <double> n_EpochError;
 
 
 
@@ -25,7 +25,7 @@ void Neuron::calcOutputLayerError(double valueOfError) {
 
 	this->n_error = this->returnOutputValue() - valueOfError;
 
-	n_EpochError.push_back(this->n_error);
+	n_EpochError.push(this->n_error);
 
 	this->n_sigmaError = Neuron::D_activationFunction(this->returnOutputValue()) *
 		this->n_error;

@@ -15,7 +15,7 @@ public:
 	void openFile(std::string location);
 	bool readToTheString(std::queue <std::string> &line);
 	static bool readDataFromQueue(std::queue <double> &inputValues,
-		std::queue <double> &outputValues, std::queue <std::string> &line);
+		std::queue <double> &outputValues, std::string lineFromVec);
 
 private:
 
