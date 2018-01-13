@@ -30,7 +30,7 @@ bool FileR::readToTheString(std::queue <std::string> &line) {
 }
 
 
-
+//this is the only method that should be changed by user to read varius data files
 bool FileR::readDataFromQueue(std::queue <double> &inputValues,
 	std::queue <double> &outputValues, std::queue <std::string> &line) {
 
