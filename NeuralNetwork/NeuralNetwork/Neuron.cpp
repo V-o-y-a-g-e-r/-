@@ -1,7 +1,7 @@
 #include "Neuron.h"
 
 
-
+//random engine for connections
 std::mt19937 eng(static_cast<unsigned long>(time(nullptr)));
 std::uniform_real_distribution<double> dist(0, 1);
 
@@ -25,7 +25,7 @@ double Neuron::D_activationFunction(double value) {
 }
 
 
-
+//output layer error calculations
 void Neuron::calcOutputLayerError(double valueOfError) {
 
 	this->n_error = this->returnOutputValue() - valueOfError;
@@ -48,7 +48,7 @@ double Neuron::activationFunction(double value) {
 }
 
 
-
+//updating weights of connections
 void Neuron::updateWeights(std::vector <Neuron> &previousLayer) {
 
 	std::vector <Neuron>::iterator i_e;
@@ -70,7 +70,7 @@ void Neuron::updateWeights(std::vector <Neuron> &previousLayer) {
 }
 
 
-
+//classic feed forward method based on vectors
 void Neuron::feedForwardForNeuron(std::vector <Neuron> &prevLayer) {
 
 	double productOfWeightsAndOutputs = (double)0;
@@ -107,6 +107,8 @@ void Neuron::setOutputValue(double value) {
 
 double Neuron::Connections::randomizeConnections() {
 	//with srand() it was slighty better
+	//with sradn() i used constant seed
+	//now every weight is different after terminating the program
 	//this engine is more random
 	double val = dist(eng);
 	return val;
@@ -115,14 +117,14 @@ double Neuron::Connections::randomizeConnections() {
 
 
 Neuron::Connections::Connections() {
-
+	//creating connections and randomizing them
 	this->weightOfConnection = Connections::randomizeConnections();
 	this->deltaOfPeviousWeightForMomentum = (double)0;
 
 }
 
-
-
+//constructor for neuron class, assigning connections here, because
+//when neuron is created it must have arleady assigned connections
 Neuron::Neuron(unsigned short numberOfNeuron, unsigned short numberOfConnections) {
 
 	this->n_indexOfNeuron = numberOfNeuron;
@@ -136,7 +138,7 @@ Neuron::Neuron(unsigned short numberOfNeuron, unsigned short numberOfConnections
 }
 
 
-
+//calculations for hidden layer error (propagating) the error backwards
 void Neuron::calcHiddenLayerError(std::vector <Neuron> &nextLayer) {
 
 	double outputDeriv = Neuron::D_activationFunction(this->returnOutputValue());
@@ -160,7 +162,7 @@ void Neuron::calcHiddenLayerError(std::vector <Neuron> &nextLayer) {
 }
 
 
-
+//calculations for hidden layer error (propagating) the error backwards
 void Neuron::calcHiddenLayerErrorLast(std::vector <Neuron> &nextLayer) {
 
 	double outputDeriv = Neuron::D_activationFunction(this->returnOutputValue());
@@ -168,7 +170,7 @@ void Neuron::calcHiddenLayerErrorLast(std::vector <Neuron> &nextLayer) {
 	double sumOfErrorInNextLayer = (double)0;
 
 	std::vector <Neuron>::iterator n_itr;
-
+	//it is for the first layer
 	for (n_itr = nextLayer.begin(); n_itr != nextLayer.end(); ++n_itr) {
 
 

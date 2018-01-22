@@ -5,7 +5,7 @@
 #include "Libraries.h"
 
 
-
+//class neuron, all info and data for given neuron
 class Neuron {
 
 	friend class Net;
@@ -25,7 +25,7 @@ private:
 	void updateWeights(std::vector <Neuron> &nextLayer);
 	
 
-
+	//nested class for connections for neuron, new standard of C++
 	class Connections {
 
 		friend class Neuron;

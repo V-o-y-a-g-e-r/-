@@ -1,10 +1,10 @@
 #include "FileR.h"
 
-
-
+//this file has nothing to do with the net itself
+//it must be changed to feed other data type
 extern int dataNum;
 
-
+//for now it is set to feed, train and test iris data - file
 
 void FileR::closeFile() {
 	this->file.close();

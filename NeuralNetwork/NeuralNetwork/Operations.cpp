@@ -1,7 +1,7 @@
 #include "Operations.h"
 
-
-
+//this file contains class operations which is basically the whole structure 
+//where we are training the net or testing
 double good;
 int dataNum;
 int step;
@@ -20,7 +20,7 @@ void Operations::createNeuralNetwork(std::vector < std::vector <Neuron> > &Neura
 	std::cout << "Creating the whole net with given layer and neuron sizes..." << std::endl;
 
 	for (unsigned short i = 0; i < netStructure.size(); ++i) {
-
+		//here i'm letting know the user of the amount of neurons and layers created
 		NeuralNetwork.push_back(std::vector <Neuron>());
 		std::cout << "Layer was created!" << std::endl;
 
@@ -332,7 +332,6 @@ bool Operations::testNet(std::vector < std::vector <Neuron> > &NeuralNetwork, Ne
 		if (counter == dataNum) ++good;
 		++i;
 	}
-	std::cout << good << i;
 	std::cout << "Precentage of corretness of the net: " 
 		<< (good/(double)i)*(double)100 << "." << std::endl;
 	return true;

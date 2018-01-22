@@ -1,7 +1,7 @@
 #include "Net.h"
 
 
-
+//output layer error calculations
 bool Net::calculateOutputError(std::queue <double> &targetValues, std::vector <Neuron> &lastLayer) {
 
 	if (targetValues.size() != lastLayer.size()) {
@@ -28,7 +28,7 @@ bool Net::calculateOutputError(std::queue <double> &targetValues, std::vector <N
 }
 
 
-
+//here we are updating weights of connections after we have propagated backwards
 void Net::updateWeightsOfConnections(std::vector < std::vector <Neuron> > &NeuralNetwork) {
 
 	std::vector < std::vector <Neuron> >::iterator iterator;
