@@ -307,7 +307,7 @@ void doMath(void) {
 		if (temp->sign == '^') {
 			powF(temp);
 		}
-		//make separate while loop for power 
+		//separate power loop
 		else if (temp->sign == '*') {
 			multF(temp);
 		}
@@ -472,7 +472,7 @@ void checkBrackets(void) {
 					powF(ptr);
 					ptr->prev = _prev;
 				}
-				//make separate while loop for power 
+				//separate while loop for power 
 				else if (ptr->sign == '*') {
 					multF(ptr);
 					ptr->prev = _prev;
