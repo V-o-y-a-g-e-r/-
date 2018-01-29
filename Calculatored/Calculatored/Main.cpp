@@ -62,11 +62,6 @@ int main(void) {
 	head = NULL;
 
 	getLine();
-	Node *tempp = head;
-	while (tempp) {
-		printf("List element: %f %c\n", tempp->value, tempp->sign);
-		tempp = tempp->next;
-	}
 	doMath();
 
 	printResult();
