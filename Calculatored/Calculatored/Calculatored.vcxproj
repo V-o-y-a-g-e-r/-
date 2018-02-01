@@ -111,7 +111,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="getLine.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Nodes.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Libraries.h" />
+    <ClInclude Include="Nodes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
